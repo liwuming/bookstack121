@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
     title: '爱书栈',
     description: '学习笔记',
@@ -33,5 +34,28 @@ module.exports = {
         },
         editLinks: true,
         editLinkText: '在 GitHub 上编辑此页 ！'
+    },
+	configureWebpack: () => {
+    const NODE_ENV = process.env.NODE_ENV
+    if(NODE_ENV === 'production'){
+      return {
+        output: {
+          publicPath: 'https://cdn.jsdelivr.net/gh/liwuming/bookstack/dist/'
+        },
+        resolve: {
+          alias: {
+            'public': path.resolve(__dirname, './public')
+          }
+        }
+      }
+    }else{
+      return {
+        resolve: {
+          alias: {
+            'public': path.resolve(__dirname, './public')
+          }
+        }
+      }
     }
+  }
 }

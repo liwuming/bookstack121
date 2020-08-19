@@ -35,29 +35,37 @@ module.exports = {
         editLinks: true,
         editLinkText: '在 GitHub 上编辑此页 ！'
     },
+	/*
+	webpack打包配置信息--使用cdn加速
+	其中 configureWebpack 是用于修改 Vuepress 内部的 Webpack 配置的，可以是一个对象，也可以是一个函数，然后返回一个对象。
+	*/
 	configureWebpack: () => {
     const NODE_ENV = process.env.NODE_ENV
+    //判断是否是生产环境
     if(NODE_ENV === 'production'){
       return {
+		alias: {
+			//'@assets': path.resolve(__dirname,"./")
+		},
         output: {
           publicPath: 'https://cdn.ibiancheng.net/vuepress/'
         },
         resolve: {
+          //配置路径别名
           alias: {
-            'public': path.resolve(__dirname, './public'),
-			'@assets': path.resolve(__dirname,'/')
+            'public': path.resolve(__dirname, './public') 
           }
         }
       }
     }else{
       return {
-		 alias: {
-			
+		alias: {
+			//'@assets': path.resolve(__dirname,"./")
 		},
         resolve: {
+          //配置路径别名
           alias: {
-            'public': path.resolve(__dirname, './public'),
-			'@assets': path.resolve(__dirname,'/')
+            'public': path.resolve(__dirname, './public') 
           }
         }
       }

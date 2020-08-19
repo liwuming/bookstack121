@@ -36,7 +36,7 @@ module.exports = {
         editLinkText: '在 GitHub 上编辑此页 ！'
     },
 	configureWebpack: () => {
-    const NODE_ENV = 'production1';
+    const NODE_ENV = 'production';
     if(NODE_ENV === 'production'){
       return {
         output: {

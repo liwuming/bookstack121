@@ -2,7 +2,7 @@ module.exports = {
     title: '爱书栈',
     description: '学习笔记',
     dest: './dist',
-	base:'/bookstack/',
+	base:'/',
     port: 80,
     head: [
         ['link', {rel: 'icon', href: '/logo.jpg'}]

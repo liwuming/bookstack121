@@ -36,28 +36,23 @@ module.exports = {
         editLinkText: '在 GitHub 上编辑此页 ！'
     },
 	configureWebpack: () => {
-    const NODE_ENV = process.env.NODE_ENV
+    const NODE_ENV = 'production';
     if(NODE_ENV === 'production'){
       return {
         output: {
-          publicPath: 'https://cdn.ibiancheng.net/vuepress/'
+          //publicPath: 'https://cdn.jsdelivr.net/gh/liwuming/bookstack/dist/'
         },
         resolve: {
           alias: {
-            'public': path.resolve(__dirname, './public'),
-			'@assets': path.resolve(__dirname,'/')
+            'public': path.resolve(__dirname, './public')
           }
         }
       }
     }else{
       return {
-		 alias: {
-			
-		},
         resolve: {
           alias: {
-            'public': path.resolve(__dirname, './public'),
-			'@assets': path.resolve(__dirname,'/')
+            'public': path.resolve(__dirname, './public')
           }
         }
       }

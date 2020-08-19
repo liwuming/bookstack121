@@ -40,7 +40,7 @@ module.exports = {
     if(NODE_ENV === 'production'){
       return {
         output: {
-          //publicPath: 'https://cdn.jsdelivr.net/gh/liwuming/bookstack/dist/'
+          publicPath: 'https://cdn.jsdelivr.net/gh/liwuming/bookstack/dist/'
         },
         resolve: {
           alias: {
